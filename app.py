@@ -19,7 +19,7 @@ if uploaded_file is not None:
 
   @st.cache
   def convert_df(df):
-    return df.to_csv(encoding="mbcs").encode('mbcs').decode('uft-8)
+    return df.to_csv(encoding="mbcs").encode('mbcs').decode('uft-8')
   csv = convert_df(df)
   st.write("\n")
   st.download_button(
