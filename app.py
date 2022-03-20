@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+st.set_page_config(page_title='¡Hola, Mónica!', page_icon = "👋'", layout = 'centered', initial_sidebar_state = 'auto')
+
 st.write("""
 # ¡Hola, Mónica! 👋
 Esta app te ayudará con problemas de encoding.
@@ -17,15 +19,15 @@ if uploaded_file is not None:
 
   @st.cache
   def convert_df(df):
-    return df.to_csv(encoding="mbcs").encode('utf-8')
+    return df.to_csv(encoding="mbcs").encode('latin-1')
   csv = convert_df(df)
   st.write("\n")
   st.download_button(
     "Pulsa para descargar",
     csv,
-    "Audited data.csv",
+    "EncodingCambiado.csv",
     "text/csv",
     key='download-csv')
 
 else:
-  st.warning("Para empezar necesitas cargar un archivo .csv")
+  st.warning("Para empezar necesitas subir un archivo .csv")
