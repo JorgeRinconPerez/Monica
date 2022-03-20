@@ -12,14 +12,14 @@ Esta app te ayudará con problemas de encoding.
 uploaded_file = st.file_uploader("", type=['csv'])
 if uploaded_file is not None:
   #read csv
-  df=pd.read_csv(uploaded_file, sep=";")
+  df=pd.read_csv(uploaded_file)
   st.write("Estas son las 10 primeras filas de tu archivo corregido")
   st.write(df.head(10))
   st.write("\n")
 
   @st.cache
   def convert_df(df):
-    return df.to_csv(encoding="mbcs")
+    return df.to_csv("EncodingCambiado.csv", encoding="mbcs")
   csv = convert_df(df)
   st.write("\n")
   st.download_button(
