@@ -28,6 +28,6 @@ if uploaded_file is not None:
     "EncodingCambiado.csv",
     "text/csv",
     key='download-csv')
-
+ 
 else:
   st.warning("Para empezar necesitas subir un archivo .csv")
